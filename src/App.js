@@ -2,13 +2,16 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/Home/Home';
 import User from './components/User/User';
-import Navbar from './components/Navbar/Navbar';
+import SideBar from './components/SideBar/SideBar';
+import Feed from './components/Feed/Feed';
+import Widgets from './components/Widgets/Widgets';
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <BrowserRouter>
-        <Navbar></Navbar>
+        <SideBar></SideBar>
+        <Widgets></Widgets>
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
           <Route exact path="/users/:userId" element={<User />}></Route>

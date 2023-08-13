@@ -1,22 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from 'react';
+import "./Home.css"
+import TweetBox from '../TweetBox/TweetBox';
 import Post from '../Post/Post';
 
 function Home() {
 
+    const [posts, setPosts] = useState([]);
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [postList, setPostList] = useState([]);
+    const [liked, setLiked] = useState(false);
 
     useEffect(() => {
         fetch("/api/posts")
             .then(res => res.json())
             .then(
                 (result) => {
-                    setIsLoaded(true);
-                    setPostList(result);
+                    setLoading(true);
+                    setPosts(result);
                 },
                 (error) => {
-                    setIsLoaded(true);
+                    setLoading(true);
                     setError(error);
                 }
             )
@@ -24,18 +27,31 @@ function Home() {
 
     if (error) {
         return <div>Error</div>;
-    } else if (!isLoaded) {
+    } else if (!loading) {
         return <div>Loading...</div>;
     } else {
-        return (
-            <div>
-                Home!!!
 
-                {postList.map(post => (
-                    <Post title={ post.title } text={ post.text }></Post>
+        return (
+            <div className="feed">
+
+
+                <div className="feed__header">
+                    <h2>Home</h2>
+                </div>
+
+                <TweetBox />
+
+                {posts.map(post => (
+                    <Post
+                        userId={post.userId}
+                        userName={post.userName}
+                        title={post.title}
+                        text={post.text}
+                    />
                 ))}
+
             </div>
-        );
+        )
     }
 }
 
