@@ -21,6 +21,10 @@
     border: none;
 }
 
+.tweetBox__avatar {
+    padding: 20px;
+}
+
 .tweetBox__tweetButton {
     background-color: var(--twitter-color) !important;
     border: none !important;

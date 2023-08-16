@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/Home/Home';
 import User from './components/User/User';
 import SideBar from './components/SideBar/SideBar';
-import Feed from './components/Feed/Feed';
 import Widgets from './components/Widgets/Widgets';
 
 function App() {

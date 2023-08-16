@@ -39,7 +39,12 @@ function Home() {
                     <h2>Home</h2>
                 </div>
 
-                <TweetBox />
+                <TweetBox
+                    userId={2}
+                    userName={"busra"}
+                    title={"deneme"}
+                    text={"deneme metin"}
+                />
 
                 {posts.map(post => (
                     <Post

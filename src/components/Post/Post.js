@@ -7,7 +7,7 @@ import RepeatIcon from '@mui/icons-material/Repeat';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import PublishIcon from '@mui/icons-material/Publish';
 
-function Post({ title, text, userId, userName, avatar }) {
+function Post({ title, text, userId, userName }) {
 
 
   const [liked, setLiked] = useState(false);
@@ -21,9 +21,8 @@ function Post({ title, text, userId, userName, avatar }) {
     <div className="post">
       <div className="post__avatar">
         <Link className="link" to={{ pathname: '/users/' + userId }}>
-          <Avatar aria-label='recipe' src={avatar}>
+          <Avatar aria-label='recipe'>
             {userName.charAt(0).toUpperCase()}
-
           </Avatar>
         </Link>
       </div>
